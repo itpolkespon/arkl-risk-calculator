@@ -10,6 +10,8 @@
 
   <h1>Kalkulator Risiko ADKL (Ingestion + Inhalation + Dermal)</h1>
   <p class="subtitle">Standar Internasional (EPA/WHO/EFSA) untuk Health Risk Assessment</p>
+  
+  <p class="version" id="dataVersion">Data versi: -</p>
 
   <!-- Jalur Paparan -->
   <h2>Ingestion</h2>
@@ -53,13 +55,7 @@
 
   <!-- Pilihan Logam Berat -->
   <label for="logam">Pilih Kontaminan</label>
-  <select id="logam">
-    <option value="Pb">Pb (Timbal)</option>
-    <option value="Cd">Cd (Kadmium)</option>
-    <option value="As">As (Arsen)</option>
-    <option value="Hg">Hg (Merkuri)</option>
-    <option value="Cr6">Cr(VI) (Kromium)</option>
-  </select>
+  <select id="logam"></select>
 
   <!-- Jenis Risiko -->
   <label for="jenisRisiko">Jenis Risiko</label>
@@ -96,6 +92,7 @@
   </div>
 
   <button onclick="hitungRisiko()">Hitung Risiko</button>
+  <button onclick="downloadCSV()">Download Hasil</button>
 
   <div id="hasil" class="result">—</div>
 
