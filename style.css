@@ -1,32 +1,11 @@
-body {
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f8f8f8;
-  margin: 0;
-  padding: 20px;
-}
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-h2 { margin-top: 20px; }
-label { font-weight: 600; margin-top: 10px; display: block; }
-input, select, button {
-  width: 100%; padding: 10px; margin-top: 5px;
-  border: 1px solid #ccc; border-radius: 6px;
-}
-button {
-  background: #007bff; color: white; border: none;
-  border-radius: 6px; cursor: pointer; margin-top: 15px;
-}
-button:hover { background: #0056b3; }
-.result {
-  margin-top: 20px; padding: 15px;
-  border-radius: 6px; font-weight: bold;
-}
-.safe { background: #d4edda; color: #155724; }
-.risk { background: #f8d7da; color: #721c24; }
-#sfBox { display: none; }
+body { font-family:"Segoe UI",sans-serif; background:#f8f8f8; margin:0; padding:20px; }
+.container { max-width:650px; margin:auto; background:#fff; padding:25px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+h2,h3{ margin-top:20px;}
+label { font-weight:600; margin-top:10px; display:block;}
+input, select, button { width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:6px; }
+button { background:#007bff; color:#fff; border:none; border-radius:6px; cursor:pointer; margin-top:15px;}
+button:hover{ background:#0056b3; }
+.result{ margin-top:20px; padding:15px; border-radius:6px; font-weight:bold;}
+.safe{ background:#d4edda; color:#155724;}
+.risk{ background:#f8d7da; color:#721c24;}
+#sfBox, #rfdBox{ margin-top:10px;}
