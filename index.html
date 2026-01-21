@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator Intake ADKL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <h1>Kalkulator Intake ADKL</h1>
+  <p class="subtitle">Analisis Risiko Kesehatan Lingkungan</p>
+
+  <label for="jenisRisiko">Jenis Risiko</label>
+  <select id="jenisRisiko" onchange="toggleInputs()">
+    <option value="non">Non-Karsinogenik</option>
+    <option value="kar">Karsinogenik</option>
+  </select>
+
+  <label for="C">Konsentrasi (C) – mg/L atau mg/kg</label>
+  <input type="number" id="C" step="any" placeholder="contoh: 0.05">
+
+  <label for="R">Laju Asupan (R) – L/hari atau kg/hari</label>
+  <input type="number" id="R" step="any" placeholder="contoh: 2">
+
+  <label for="tE">Waktu Pajanan (tE) – jam/hari</label>
+  <input type="number" id="tE" step="any" placeholder="contoh: 8">
+
+  <label for="fE">Frekuensi Pajanan (fE) – hari/tahun</label>
+  <input type="number" id="fE" step="any" placeholder="contoh: 350">
+
+  <label for="Dt">Durasi Pajanan (Dt) – tahun</label>
+  <input type="number" id="Dt" step="any" placeholder="contoh: 30">
+
+  <label for="Wb">Berat Badan (Wb) – kg</label>
+  <input type="number" id="Wb" step="any" placeholder="contoh: 60">
+
+  <div id="rfdBox">
+    <label for="RfD">Reference Dose (RfD) – mg/kg/hari</label>
+    <input type="number" id="RfD" step="any" placeholder="contoh: 0.0035">
+  </div>
+
+  <div id="sfBox">
+    <label for="SF">Slope Factor (SF) – per mg/kg/hari</label>
+    <input type="number" id="SF" step="any" placeholder="contoh: 0.0001">
+  </div>
+
+  <button onclick="hitungRisiko()">Hitung Risiko</button>
+
+  <div id="hasil" class="result">—</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
