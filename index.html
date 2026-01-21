@@ -2,59 +2,56 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Kalkulator Intake Risiko Kesehatan Lingkungan</title>
+  <title>Kalkulator Risiko EHRA Internasional</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
 
   <h1>Kalkulator Risiko ADKL (Ingestion + Inhalation + Dermal)</h1>
-  <p class="subtitle">Standar Internasional (EPA/WHO) untuk Health Risk Assessment</p>
+  <p class="subtitle">Standar Internasional (EPA/WHO/EFSA) untuk Health Risk Assessment</p>
 
-  <!-- Paparan Jalur Ingestion -->
-  <h2>Ingestion (Masuk ke Tubuh)</h2>
-
+  <!-- Jalur Paparan -->
+  <h2>Ingestion</h2>
   <h3>Air Minum</h3>
-  <label for="C_air">Konsentrasi Air (mg/L)</label>
-  <input type="number" id="C_air" step="any" placeholder="contoh: 0.01">
-  <label for="R_air">Asupan Air (L/hari)</label>
-  <input type="number" id="R_air" step="any" placeholder="contoh: 2">
+  <label for="C_air">Konsentrasi (mg/L)</label>
+  <input type="number" id="C_air" step="any" placeholder="0.01">
+  <label for="R_air">Asupan (L/hari)</label>
+  <input type="number" id="R_air" step="any" placeholder="2">
 
   <h3>Makanan</h3>
-  <label for="C_food">Konsentrasi Makanan (mg/kg)</label>
-  <input type="number" id="C_food" step="any" placeholder="contoh: 0.05">
-  <label for="R_food">Asupan Makanan (kg/hari)</label>
-  <input type="number" id="R_food" step="any" placeholder="contoh: 1">
+  <label for="C_food">Konsentrasi (mg/kg)</label>
+  <input type="number" id="C_food" step="any" placeholder="0.05">
+  <label for="R_food">Asupan (kg/hari)</label>
+  <input type="number" id="R_food" step="any" placeholder="1">
 
   <h3>Minuman Lain</h3>
-  <label for="C_drink">Konsentrasi Minuman (mg/L)</label>
-  <input type="number" id="C_drink" step="any" placeholder="contoh: 0.005">
-  <label for="R_drink">Asupan Minuman Lain (L/hari)</label>
-  <input type="number" id="R_drink" step="any" placeholder="contoh: 1">
+  <label for="C_drink">Konsentrasi (mg/L)</label>
+  <input type="number" id="C_drink" step="any" placeholder="0.005">
+  <label for="R_drink">Asupan (L/hari)</label>
+  <input type="number" id="R_drink" step="any" placeholder="1">
 
   <hr>
 
-  <!-- Paparan Jalur Inhalation -->
-  <h2>Inhalation (Paparan Udara)</h2>
+  <h2>Inhalation</h2>
   <label for="C_airu">Konsentrasi Udara (mg/m³)</label>
-  <input type="number" id="C_airu" step="any" placeholder="contoh: 0.02">
-  <label for="R_airu">Volume Udara Terhirup (m³/jam)</label>
-  <input type="number" id="R_airu" step="any" placeholder="contoh: 20">
+  <input type="number" id="C_airu" step="any" placeholder="0.02">
+  <label for="R_airu">Volume Udara Terhirup (m³/hari)</label>
+  <input type="number" id="R_airu" step="any" placeholder="20">
 
   <hr>
 
-  <!-- Paparan Jalur Dermal -->
-  <h2>Dermal Contact (Kontak Kulit)</h2>
+  <h2>Dermal Contact</h2>
   <label for="C_dermal">Konsentrasi Media (mg/L atau mg/kg)</label>
-  <input type="number" id="C_dermal" step="any" placeholder="contoh: 0.01">
+  <input type="number" id="C_dermal" step="any" placeholder="0.01">
   <label for="SA">Area Kontak Kulit (cm²)</label>
-  <input type="number" id="SA" step="any" placeholder="contoh: 18000">
-  <label for="AF">Faktor Fraksi Absorbsi</label>
-  <input type="number" id="AF" step="any" placeholder="contoh: 0.01">
+  <input type="number" id="SA" step="any" placeholder="18000">
+  <label for="AF">Faktor Absorpsi (AF)</label>
+  <input type="number" id="AF" step="any" placeholder="0.01">
 
   <hr>
 
-  <!-- Pilih Logam Berat -->
+  <!-- Pilihan Logam Berat -->
   <label for="logam">Pilih Kontaminan</label>
   <select id="logam">
     <option value="Pb">Pb (Timbal)</option>
@@ -73,7 +70,7 @@
 
   <!-- Berat Badan -->
   <label for="Wb">Berat Badan (kg)</label>
-  <input type="number" id="Wb" step="any" placeholder="contoh: 60">
+  <input type="number" id="Wb" step="any" placeholder="60">
 
   <!-- RfD / SF -->
   <div id="rfdBox">
@@ -84,6 +81,18 @@
   <div id="sfBox">
     <label for="SF">Slope Factor (SF) – per mg/kg/hari</label>
     <input type="number" id="SF" step="any">
+  </div>
+
+  <!-- Bioaccumulation Factor -->
+  <div>
+    <label for="BAF">Bioaccumulation Factor (BAF)</label>
+    <input type="number" id="BAF" step="any" placeholder="1.5">
+  </div>
+
+  <!-- Faktor Ketidakpastian -->
+  <div>
+    <label for="UF">Uncertainty Factor (UF)</label>
+    <input type="number" id="UF" step="any" placeholder="1">
   </div>
 
   <button onclick="hitungRisiko()">Hitung Risiko</button>
