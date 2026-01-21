@@ -3,7 +3,7 @@ console.log("script.js loaded");
 let logamData=[], csvResults=[], riskChart=null;
 
 // Load logam dari JSON
-fetch('data/simulasi_logam.json')
+fetch('data/logam.json')
 .then(res=>res.json())
 .then(data=>{
   logamData = data;
