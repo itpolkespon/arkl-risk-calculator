@@ -11,12 +11,24 @@
   <h1>Kalkulator Intake ADKL</h1>
   <p class="subtitle">Analisis Risiko Kesehatan Lingkungan</p>
 
+  <!-- Pilihan Logam Berat -->
+  <label for="logam">Pilih Logam Berat</label>
+  <select id="logam">
+    <option value="Pb">Pb (Timbal)</option>
+    <option value="Cd">Cd (Kadmium)</option>
+    <option value="As">As (Arsen)</option>
+    <option value="Hg">Hg (Merkuri)</option>
+    <option value="Cr6">Cr(VI) (Kromium)</option>
+  </select>
+
+  <!-- Pilihan Jenis Risiko -->
   <label for="jenisRisiko">Jenis Risiko</label>
   <select id="jenisRisiko" onchange="toggleInputs()">
     <option value="non">Non-Karsinogenik</option>
     <option value="kar">Karsinogenik</option>
   </select>
 
+  <!-- Input Pajanan -->
   <label for="C">Konsentrasi (C) – mg/L atau mg/kg</label>
   <input type="number" id="C" step="any" placeholder="contoh: 0.05">
 
@@ -35,18 +47,21 @@
   <label for="Wb">Berat Badan (Wb) – kg</label>
   <input type="number" id="Wb" step="any" placeholder="contoh: 60">
 
+  <!-- RfD / SF -->
   <div id="rfdBox">
     <label for="RfD">Reference Dose (RfD) – mg/kg/hari</label>
-    <input type="number" id="RfD" step="any" placeholder="contoh: 0.0035">
+    <input type="number" id="RfD" step="any" placeholder="otomatis terisi">
   </div>
 
   <div id="sfBox">
     <label for="SF">Slope Factor (SF) – per mg/kg/hari</label>
-    <input type="number" id="SF" step="any" placeholder="contoh: 0.0001">
+    <input type="number" id="SF" step="any" placeholder="otomatis terisi">
   </div>
 
+  <!-- Tombol Hitung -->
   <button onclick="hitungRisiko()">Hitung Risiko</button>
 
+  <!-- Hasil -->
   <div id="hasil" class="result">—</div>
 
 </div>
