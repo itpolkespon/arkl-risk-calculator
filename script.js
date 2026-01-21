@@ -1,5 +1,15 @@
 console.log("script.js loaded");
 
+// Database logam berat
+const logamBerat = {
+  Pb: { RfD: 0.003, SF: 0 },
+  Cd: { RfD: 0.001, SF: 0 },
+  As: { RfD: 0.0003, SF: 1.5 },
+  Hg: { RfD: 0.0003, SF: 0 },
+  Cr6: { RfD: 0.003, SF: 0.5 }
+};
+
+// Toggle Non-Karsinogenik / Karsinogenik
 function toggleInputs() {
   const jenis = document.getElementById("jenisRisiko").value;
   const rfdBox = document.getElementById("rfdBox");
@@ -12,18 +22,27 @@ function toggleInputs() {
     rfdBox.style.display = "none";
     sfBox.style.display = "block";
   }
+
+  // Auto-fill RfD / SF sesuai logam terpilih
+  const logam = document.getElementById("logam").value;
+  document.getElementById("RfD").value = logamBerat[logam].RfD;
+  document.getElementById("SF").value = logamBerat[logam].SF;
 }
 
+// Event Listener
+document.getElementById("logam").addEventListener("change", toggleInputs);
 document.addEventListener("DOMContentLoaded", toggleInputs);
 
+// Hitung Risiko
 function hitungRisiko() {
+  const logam = document.getElementById("logam").value;
+  const jenis = document.getElementById("jenisRisiko").value;
   const C  = parseFloat(document.getElementById("C").value);
   const R  = parseFloat(document.getElementById("R").value);
   const tE = parseFloat(document.getElementById("tE").value);
   const fE = parseFloat(document.getElementById("fE").value);
   const Dt = parseFloat(document.getElementById("Dt").value);
   const Wb = parseFloat(document.getElementById("Wb").value);
-  const jenis = document.getElementById("jenisRisiko").value;
 
   if ([C,R,tE,fE,Dt,Wb].some(v => isNaN(v) || v <= 0)) {
     alert("Semua parameter pajanan wajib diisi dengan benar");
@@ -38,15 +57,13 @@ function hitungRisiko() {
   let output = `<b>Intake ADKL:</b> ${intake.toExponential(3)} mg/kg/hari<br>`;
 
   if (jenis === "non") {
-    const RfD = parseFloat(document.getElementById("RfD").value);
-    if (isNaN(RfD) || RfD <= 0) { alert("Masukkan nilai RfD yang valid"); return; }
+    let RfD = parseFloat(document.getElementById("RfD").value) || logamBerat[logam].RfD;
     const HQ = intake / RfD;
     hasil.classList.add(HQ <= 1 ? "safe" : "risk");
     output += `<b>Hazard Quotient (HQ):</b> ${HQ.toFixed(2)}<br>
                <b>Status Risiko:</b> ${HQ <= 1 ? "AMAN" : "TIDAK AMAN"}`;
   } else {
-    const SF = parseFloat(document.getElementById("SF").value);
-    if (isNaN(SF) || SF <= 0) { alert("Masukkan nilai Slope Factor (SF) yang valid"); return; }
+    let SF = parseFloat(document.getElementById("SF").value) || logamBerat[logam].SF;
     const ECR = intake * SF;
     let status = "";
     if (ECR <= 1e-6) status = "Risiko Rendah";
