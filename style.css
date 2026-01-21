@@ -6,8 +6,8 @@ body {
 }
 
 .container {
-  max-width: 600px;
-  margin: 30px auto;
+  max-width: 700px;
+  margin: 40px auto;
   background: #fff;
   padding: 25px;
   border-radius: 10px;
@@ -16,20 +16,26 @@ body {
 
 h1 { margin-bottom: 5px; }
 .subtitle { color: #666; margin-bottom: 20px; }
-label { font-weight: 600; margin-top: 10px; display: block; }
-input, select, button { width: 100%; padding: 10px; margin-top: 5px; }
-input, select { border: 1px solid #ccc; border-radius: 6px; }
-button { margin-top: 15px; background: #0056b3; color: white; border: none; border-radius: 6px; cursor: pointer; }
-button:hover { background: #003f8a; }
-.result { margin-top: 20px; padding: 15px; border-radius: 6px; font-weight: bold; }
-.safe { background: #d4edda; color: #155724; }
-.risk { background: #f8d7da; color: #721c24; }
-
-#sfBox { display: none; }
-
-.exposure { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; border-radius: 6px; background: #f9f9f9; }
-.exposure h4 { margin-top: 0; }
-
-@media (max-width: 600px) {
-  .container { padding: 15px; margin: 15px; }
+label { font-weight: 600; margin-top: 10px; display:block; }
+input, select, button { width:100%; padding:10px; margin-top:5px; }
+input, select { border:1px solid #ccc; border-radius:6px; }
+button {
+  margin-top:20px;
+  background:#0056b3;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
+button:hover { background:#003f8a; }
+
+.result { margin-top:20px; padding:15px; border-radius:6px; font-weight:bold; }
+
+.safe { background:#d4edda; color:#155724; }
+.risk { background:#f8d7da; color:#721c24; }
+
+#sfBox, #rfdBox { margin-top:10px; }
+
+.exposure h4 { margin-top:10px; margin-bottom:5px; }
+
+@media (max-width:700px){ .container{padding:15px;margin:20px;} }
